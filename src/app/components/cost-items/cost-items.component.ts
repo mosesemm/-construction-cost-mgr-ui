@@ -5,11 +5,10 @@ import { ApiService } from '../../services/api.service';
 import { CostItem } from '../../models/cost-item.model';
 
 @Component({
-  selector: 'app-cost-items',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './cost-items.component.html',
-  styleUrl: './cost-items.component.css'
+    selector: 'app-cost-items',
+    imports: [CommonModule, RouterLink],
+    templateUrl: './cost-items.component.html',
+    styleUrl: './cost-items.component.css'
 })
 export class CostItemsComponent implements OnInit {
   projectId!: number;

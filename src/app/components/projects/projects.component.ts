@@ -5,11 +5,10 @@ import { ApiService } from '../../services/api.service';
 import { Project } from '../../models/project.model';
 
 @Component({
-  selector: 'app-projects',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css'
+    selector: 'app-projects',
+    imports: [CommonModule, RouterLink],
+    templateUrl: './projects.component.html',
+    styleUrl: './projects.component.css'
 })
 export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
