@@ -1,0 +1,30 @@
+<div class="dashboard">
+  <h1>Construction Cost Manager</h1>
+  <p class="subtitle">Dashboard Overview</p>
+
+  <div *ngIf="loading" class="loading">Loading projects...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="stats-grid" *ngIf="!loading">
+    <div class="stat-card">
+      <h3>Total Projects</h3>
+      <p class="stat-value">{{ projects.length }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Active Projects</h3>
+      <p class="stat-value">{{ activeProjects }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Completed Projects</h3>
+      <p class="stat-value">{{ completedProjects }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Budget</h3>
+      <p class="stat-value">{{ totalBudget | currency }}</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a routerLink="/projects" class="btn btn-primary">View All Projects</a>
+  </div>
+</div>

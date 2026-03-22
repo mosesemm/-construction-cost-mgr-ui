@@ -1,0 +1,41 @@
+<div class="projects-container">
+  <div class="header">
+    <h2>Projects</h2>
+    <a routerLink="/dashboard" class="btn btn-secondary">← Dashboard</a>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading projects...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && projects.length === 0 && !error" class="empty-state">
+    <p>No projects found. Create your first project via the API.</p>
+  </div>
+
+  <table *ngIf="!loading && projects.length > 0" class="projects-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Budget</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <td>{{ project.name }}</td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.startDate }}</td>
+        <td>{{ project.endDate }}</td>
+        <td>{{ project.budget | currency }}</td>
+        <td><span [class]="'badge ' + getStatusClass(project.status)">{{ project.status }}</span></td>
+        <td>
+          <a [routerLink]="['/projects', project.id, 'costs']" class="btn btn-sm btn-primary">Costs</a>
+          <button (click)="deleteProject(project.id)" class="btn btn-sm btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
